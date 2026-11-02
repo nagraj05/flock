@@ -62,8 +62,8 @@ Example profile: `/birds/Bubo_bubo`
 ### Installation
 
 ```bash
-git clone <your-repository-url>
-cd the-flights
+git clone https://github.com/nagraj05/flock.git
+cd flock
 bun install
 ```
 
