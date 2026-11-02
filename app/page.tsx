@@ -1,69 +1,160 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const marqueeBirds = [
+  "KINGFISHER",
+  "TOCO TOUCAN",
+  "SCARLET MACAW",
+  "EURASIAN EAGLE-OWL",
+  "GREATER FLAMINGO",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main className="home-page">
+      <nav className="site-nav" aria-label="Main navigation">
+        <Link className="brand-mark" href="/" aria-label="Flock home">
+          <span>FLOCK!</span>
+          <span className="brand-dot" aria-hidden="true" />
+        </Link>
+        <div className="nav-links">
+          <a href="#about">About</a>
+          <Link className="nav-cta" href="/birds">
+            All 11,064 birds <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+      </nav>
+
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-copy">
+          <p className="eyebrow">A loud little corner of the internet</p>
+          <h1 id="hero-title">
+            <span>BIRDS</span>
+            <span className="outline-word">ARE NOT</span>
+            <span>BORING.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+          <div className="hero-bottom">
+            <p>
+              Strange beaks. Loud feathers. Zero apologies. Meet every living
+              bird species, one excellent sticker at a time.
+            </p>
+            <Link className="brutal-button yellow" href="/birds">
+              Open the aviary <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+
+        <div className="hero-art" aria-label="Bird sticker collage">
+          <div className="sunburst" aria-hidden="true" />
+          <div className="sticker-card sticker-owl">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/birds/bubo-bubo.webp"
+              alt="Illustrated Eurasian eagle-owl sticker"
+              width={760}
+              height={760}
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+          <div className="sticker-card sticker-kingfisher">
+            <Image
+              src="/birds/alcedo-atthis.webp"
+              alt="Illustrated common kingfisher sticker"
+              width={520}
+              height={520}
+              priority
+            />
+          </div>
+          <div className="comic-burst burst-one">WOW!</div>
+          <div className="comic-burst burst-two">TWEET</div>
+          <span className="scribble" aria-hidden="true">
+            ✦
+          </span>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <div className="ticker" aria-hidden="true">
+        <div className="ticker-track">
+          {[...marqueeBirds, ...marqueeBirds].map((bird, index) => (
+            <span key={`${bird}-${index}`}>
+              {bird} <b>✹</b>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <section
+        className="manifesto"
+        id="about"
+        aria-labelledby="manifesto-title"
+      >
+        <div className="manifesto-intro">
+          <span className="section-number">01 / FIELD NOTES</span>
+          <h2 id="manifesto-title">FEATHERS WITH MAIN-CHARACTER ENERGY.</h2>
+        </div>
+        <div className="manifesto-grid">
+          <article className="fact-card blue-card">
+            <span className="fact-number">11,064</span>
+            <h3>living species</h3>
+            <p>
+              Every one has its own look, its own range, and a seriously
+              specific name.
+            </p>
+          </article>
+          <article className="fact-card pink-card">
+            <Image
+              src="/birds/ara-macao.webp"
+              alt="Illustrated scarlet macaw sticker"
+              width={420}
+              height={420}
+            />
+            <div>
+              <span className="fact-number">44</span>
+              <h3>orders</h3>
+            </div>
+          </article>
+          <article className="fact-card cream-card">
+            <p className="big-quote">“Nature has no chill.”</p>
+            <Image
+              src="/birds/ramphastos-toco.webp"
+              alt="Illustrated toco toucan sticker"
+              width={360}
+              height={360}
+            />
+          </article>
+        </div>
+      </section>
+
+      <section className="final-cta" aria-labelledby="cta-title">
+        <div>
+          <span className="section-number">02 / THE AVIARY</span>
+          <h2 id="cta-title">
+            PICK A BIRD.
+            <br />
+            FIND A NEW FAVORITE.
+          </h2>
+        </div>
+        <Link
+          className="round-link"
+          href="/birds"
+          aria-label="Go to the birds page"
+        >
+          <span>FLY IN</span>
+          <b aria-hidden="true">↗</b>
+        </Link>
+        <Image
+          className="cta-bird"
+          src="/birds/paradisaea-raggiana.webp"
+          alt="Illustrated Raggiana bird-of-paradise sticker"
+          width={560}
+          height={560}
+        />
+      </section>
+
+      <footer>
+        <span>FLOCK! © 2026</span>
+        <p>Created by Nagraj Tadingi</p>
+        <Link href="/birds">Birds ↗</Link>
+      </footer>
+    </main>
   );
 }
