@@ -151,10 +151,6 @@ Please review the upstream licenses before reusing or deploying this project:
 
 This project treats the illustrations as a playful discovery gallery—not as identification plates. Always confirm fine field marks with a trusted field guide or biodiversity database.
 
-## Contributing
-
-Ideas, visual refinements, accessibility improvements, and performance fixes are welcome. If you find an error in a sticker or species record, report it to the [upstream bird-sticker repository](https://github.com/alchaincyf/huashu-bird-sticker/issues) so the correction can benefit everyone using the dataset.
-
 ---
 
 <div align="center">
